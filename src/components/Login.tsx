@@ -19,10 +19,16 @@ export default class Login extends React.Component<{}, LoginData> {
     this.setState({password: event.target.value});
   }
 
+  onSubmit = (event): void => {
+    event.preventDefault();
+    console.log(this.state);
+  }
+
   public render() {
     return (
       <div>
-        <form action="#" method="POST">
+        <h2>Login</h2>
+        <form action="#" onSubmit={this.onSubmit}>
           <label><br />
             Email: <input type="text" name="email" value={this.state.email || ''} onChange={this.onEmailChange}/>
           </label>
