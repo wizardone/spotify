@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Api } from '../api/client';
 interface LoginData {
   email: string;
   password: string;
@@ -13,6 +14,7 @@ export default class Login extends React.Component<{}, LoginData> {
 
   onEmailChange = (event): void => {
     this.setState({email: event.target.value});
+    console.log(new Api.Client());
   }
 
   onPasswordChange = (event): void => {
@@ -21,7 +23,6 @@ export default class Login extends React.Component<{}, LoginData> {
 
   onSubmit = (event): void => {
     event.preventDefault();
-    console.log(this.state);
   }
 
   public render() {
