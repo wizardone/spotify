@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Api } from '../api/client';
+
 interface LoginData {
   email: string;
   password: string;
@@ -11,6 +12,18 @@ export default class Login extends React.Component<{}, LoginData> {
     email: '',
     password: ''
   };
+
+  constructor(props: {}) {
+    super(props);
+    const spotifyAuthUrl = [
+      `https://accounts.spotify.com/authorize/?`,
+      `response_type=code&`,
+      `client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&`,
+      `redirect_uri=${process.env.REACT_APP_SPOTIFY_REDIRECT_URL}`
+    ].join('');
+
+    window.location.href = spotifyAuthUrl;
+  }
 
   onEmailChange = (event): void => {
     this.setState({email: event.target.value});
