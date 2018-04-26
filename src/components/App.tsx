@@ -1,7 +1,8 @@
 import * as React from 'react';
 import '../style/App.css';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Login from './Login';
+import Callback from './Callback';
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
 const Home = () => (
   <div>Welcome!</div>
 );
+
 const Header = () => (
   <ul>
     <li><Link to="/">Home</Link></li>
@@ -25,10 +27,9 @@ const Header = () => (
 
 const Main = () => (
   <div>
-    <Switch>
-      <Route path="/" component={Home}/>
-      <Route path="/login" component={Login}/>
-    </Switch>
+    <Route path="/" component={Home}/>
+    <Route path="/login" component={Login}/>
+    <Route path="/callback" component={Callback}/>
   </div>
 );
 export default App;

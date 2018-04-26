@@ -21,8 +21,7 @@ export default class Login extends React.Component<{}, LoginData> {
       `client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&`,
       `redirect_uri=${process.env.REACT_APP_SPOTIFY_REDIRECT_URL}`
     ].join('');
-    console.log(spotifyAuthUrl);
-    // window.location.href = spotifyAuthUrl;
+    window.location.href = spotifyAuthUrl;
   }
 
   onEmailChange = (event): void => {
