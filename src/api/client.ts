@@ -1,7 +1,9 @@
+import axios from 'axios';
+
 export namespace Api {
 
   interface Methods {
-    login(email: string, password: string): void;
+    getToken(accessCode: string): void;
   }
 
   export class Client implements Methods {
@@ -10,14 +12,18 @@ export namespace Api {
     private readonly clientId: string | undefined;
     private readonly clientSecret: string | undefined;
 
-    constructor() {
+    public constructor() {
       this.url = process.env.REACT_APP_SPOTIFY_URL;
       this.clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
       this.clientSecret = process.env.REACT_APP_SPOTIFY_SECRET;
     }
 
-    login() {
-    
+    getToken(accessCode: string) {
+      return axios.post('https://accounts.spotify.com/api/token', {
+        grant_type: 'authorization_code',
+        code: accessCode,
+        redirect_uri: process.env.REACT_APP_SPOTIFY_REDIRECT_URL
+      });
     }
   }
 }

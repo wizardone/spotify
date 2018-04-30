@@ -26,7 +26,6 @@ export default class Login extends React.Component<{}, LoginData> {
 
   onEmailChange = (event): void => {
     this.setState({email: event.target.value});
-    console.log(new Api.Client());
   }
 
   onPasswordChange = (event): void => {
