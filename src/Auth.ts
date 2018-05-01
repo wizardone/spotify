@@ -1,13 +1,12 @@
+const ACCESS_TOKEN = 'access_token';
+
 export default class Auth {
-  public access_token: string;
-  public token_type: string;
-  public refresh_token: string;
 
-  public static saveToken(): void {
-
+  public static saveToken(accessToken: string): void {
+    localStorage.setItem(ACCESS_TOKEN, accessToken);
   }
 
   public static deleteToken(): void {
-
+    localStorage.removeItem(ACCESS_TOKEN);
   }
 }

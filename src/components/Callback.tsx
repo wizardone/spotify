@@ -16,11 +16,20 @@ export default class Callback extends React.Component<CallbackProps, {}> {
 
   public constructor(props: CallbackProps) {
     super(props);
-    const accessCode: string = props.location.search.split('=')[1];
-    // new Api.Client().getToken(accessCode);
+    const hashData: string = String(props.location.hash).split('#')[1];
+    const accessToken: string = this.obtainAccessToken(hashData);
+    if (accessToken) {
+      Auth.saveToken(accessToken);
+    }
   }
 
   public render() {
     return null;
+  }
+
+  private obtainAccessToken(hashData): string {
+    const data: Array<string> = hashData.split('&');
+
+    return data[0].split('=')[1];
   }
 }
