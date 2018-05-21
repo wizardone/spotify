@@ -14,4 +14,9 @@ describe('Auth', () => {
 
     expect(localStorage.getItem('access_token')).to.eql(null);
   });
+
+  it('getToken', () => {
+    Auth.saveToken('some_token');
+    expect(Auth.getToken()).to.eql('some_token');
+  });
 });

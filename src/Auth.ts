@@ -6,6 +6,10 @@ export default class Auth {
     localStorage.setItem(ACCESS_TOKEN, accessToken);
   }
 
+  public static getToken(): string | null {
+    return localStorage.getItem(ACCESS_TOKEN) || null;
+  }
+
   public static deleteToken(): void {
     localStorage.removeItem(ACCESS_TOKEN);
   }
