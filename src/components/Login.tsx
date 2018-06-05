@@ -15,7 +15,10 @@ export default class Login extends React.Component<{}, LoginData> {
 
   constructor(props: {}) {
     super(props);
-    const spotifyAuthUrl = [
+  }
+
+  loginClick = () => {
+    const spotifyAuthUrl: string = [
       `https://accounts.spotify.com/authorize/?`,
       `response_type=token&`,
       `client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&`,
@@ -24,31 +27,10 @@ export default class Login extends React.Component<{}, LoginData> {
     window.location.href = spotifyAuthUrl;
   }
 
-  onEmailChange = (event): void => {
-    this.setState({email: event.target.value});
-  }
-
-  onPasswordChange = (event): void => {
-    this.setState({password: event.target.value});
-  }
-
-  onSubmit = (event): void => {
-    event.preventDefault();
-  }
-
   public render() {
     return (
       <div>
-        <h2>Login</h2>
-        <form action="#" onSubmit={this.onSubmit}>
-          <label><br />
-            Email: <input type="text" name="email" value={this.state.email || ''} onChange={this.onEmailChange}/>
-          </label>
-          <label><br />
-          Password: <input type="password" name="password" value={this.state.password || ''} onChange={this.onPasswordChange}/>
-          </label><br />
-          <input type="submit" value="Login"/>
-        </form>
+        <a href="#" onClick={this.loginClick}>Spotify Login</a>
       </div>
     );
   }
