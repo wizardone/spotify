@@ -1,9 +1,11 @@
 import * as React from 'react';
 import '../style/App.css';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import Home from './Home';
+import Profile from './Profile';
 import Callback from './Callback';
+import PrivateRoute from './PrivateRoute';
 
 class App extends React.Component {
   render() {
@@ -14,18 +16,24 @@ class App extends React.Component {
       </div>
     );
   }
-};
+}
+
 const Header = () => (
   <ul>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/login">Login</Link></li>
+    <li><Link to="/profile">Profile</Link></li>
   </ul>
 );
+
 const Main = () => (
   <div>
-    <Route exact path="/" component={Home}/>
-    <Route path="/login" component={Login}/>
-    <Route path="/callback" component={Callback}/>
+    <Switch>
+      <Route exact={true} path="/" component={Home}/>
+      <Route exact={true} path="/login" component={Login}/>
+      <PrivateRoute component={Profile} path="/profile"/>
+      <Route path="/callback" component={Callback}/>
+    </Switch>
   </div>
 );
 export default App;
