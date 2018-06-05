@@ -14,7 +14,7 @@ class App extends React.Component {
       </div>
     );
   }
-}
+};
 const Header = () => (
   <ul>
     <li><Link to="/">Home</Link></li>

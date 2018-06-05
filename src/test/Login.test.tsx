@@ -10,6 +10,6 @@ it('renders without crashing', () => {
 
 it('displays the login form', () => {
   const login = enzyme.shallow(<Login />);
-  expect(login.find('h2').text()).toEqual('Login');
+  expect(login.find('a.login').text()).toEqual('Spotify Login');
 });
 

@@ -30,7 +30,7 @@ export default class Login extends React.Component<{}, LoginData> {
   public render() {
     return (
       <div>
-        <a href="#" onClick={this.loginClick}>Spotify Login</a>
+        <a className="login" href="#" onClick={this.loginClick}>Spotify Login</a>
       </div>
     );
   }
