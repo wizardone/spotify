@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { BrowserRouter, Redirect } from 'react-router-dom';
-import Auth from '../Auth';
+import Auth from '../auth';
 import PrivateRoute from '../components/PrivateRoute';
 
 describe('PrivateRoute', () => {

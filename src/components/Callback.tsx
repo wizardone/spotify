@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../style/App.css';
-import Auth from '../Auth';
+import Auth from '../auth';
 import { Api } from '../api/client';
 
 interface CallbackProps {

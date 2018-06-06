@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Auth from '../Auth';
+import Auth from '../auth';
 
 interface PrivateRouteParams {
   component: any;

@@ -1,4 +1,4 @@
-import Auth from '../Auth';
+import Auth from '../auth';
 import {expect} from 'chai';
 
 describe('Auth', () => {
