@@ -6,13 +6,14 @@ interface PrivateRouteParams {
   component: any;
   path: string;
   redirectTo?: string;
+  guardFunc?: () => any;
 }
 
-const PrivateRoute = ({component: Component, path, ...rest}: PrivateRouteParams) => (
+const PrivateRoute = ({component: Component, path, guardFunc, ...rest}: PrivateRouteParams) => (
   <Route 
     {...rest} 
     render={props =>
-      Auth.getToken() === null ? <Redirect to={rest.redirectTo || '/login'}/> : <Component {...props} />
+      guardFunc && guardFunc() === null ? <Redirect to={rest.redirectTo || '/login'}/> : <Component {...props} />
     }
   />
 );

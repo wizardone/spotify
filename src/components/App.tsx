@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../style/App.css';
 import { Link, Route, Switch } from 'react-router-dom';
+import Auth from '../auth';
 import Login from './Login';
 import Home from './Home';
 import Profile from './Profile';
@@ -31,7 +32,7 @@ const Main = () => (
     <Switch>
       <Route exact={true} path="/" component={Home}/>
       <Route exact={true} path="/login" component={Login}/>
-      <PrivateRoute component={Profile} path="/profile"/>
+      <PrivateRoute component={Profile} path="/profile" guardFunc={Auth.getToken}/>
       <Route path="/callback" component={Callback}/>
     </Switch>
   </div>
