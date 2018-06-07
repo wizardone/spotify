@@ -10,7 +10,7 @@ export default class Logout extends React.Component<{}, LogoutState> {
 
   state: LogoutState = {
     redirectHome: false
-  }
+  };
 
   componentDidMount() {
     this.logOut();
@@ -23,7 +23,7 @@ export default class Logout extends React.Component<{}, LogoutState> {
 
   render() {
     const { redirectHome } = this.state;
-    if(redirectHome === true) {
+    if (redirectHome === true) {
       return <Redirect to={'/'}/>;
     } else {
       return null;
