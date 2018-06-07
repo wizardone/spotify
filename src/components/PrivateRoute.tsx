@@ -10,8 +10,8 @@ interface PrivateRouteParams {
 }
 
 const PrivateRoute = ({component: Component, path, guardFunc, ...rest}: PrivateRouteParams) => (
-  <Route 
-    {...rest} 
+  <Route
+    {...rest}
     render={props =>
       guardFunc && guardFunc() === null ? <Redirect to={rest.redirectTo || '/login'}/> : <Component {...props} />
     }
