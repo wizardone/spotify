@@ -20,10 +20,10 @@ export default class Callback extends React.Component<CallbackProps, {}> {
     const accessToken: string = this.obtainAccessToken(hashData);
     if (accessToken) {
       Auth.saveToken(accessToken);
-      new Api.Client().me();
     }
   }
 
+  // TODO: Return a redirect to home screen here!
   public render() {
     return null;
   }

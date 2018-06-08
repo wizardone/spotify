@@ -1,7 +1,16 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import Auth from '../auth';
 
-const Profile = () => (
-  <div>Profile page</div>
-);
+class Profile extends React.Component<{}, {}> {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return <div>Profile Page</div>;
+  }
+}
 
 export default Profile;
