@@ -5,12 +5,9 @@ import { Api } from '../api/client';
 import addUser from '../store/actions';
 import { UserState } from '../interfaces';
 
-interface DispatchProps {
-  addUserData: (userData: UserState) => {};
-}
-
 interface ProfileProps {
-  addUserData: (userData) => {};
+  addUserData: (userData: {}) => {};
+  userData: UserState;
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,11 +16,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state: UserState): UserState => {
-  return state;
+const mapStateToProps = (state: UserState) => {
+  return { userData: state };
 };
 
-class Profile extends React.Component<ProfileProps, {}> {
+export class Profile extends React.Component<ProfileProps, {}> {
 
   constructor(props: ProfileProps) {
     super(props);
@@ -39,7 +36,15 @@ class Profile extends React.Component<ProfileProps, {}> {
   }
 
   render() {
-    return <div>Profile Page</div>;
+    return (
+      <div>
+        Profile Page
+          <p className='email'>Email: {this.props.userData.email}</p>
+          <p>Display name: {this.props.userData.display_name}</p>
+          <p>Id: {this.props.userData.id}</p>
+          <p>Type: {this.props.userData.type}</p>
+      </div>
+    );
   }
 }
 
