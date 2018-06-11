@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../style/App.css';
 import Auth from '../auth';
 import { Api } from '../api/client';
+import { Redirect } from 'react-router-dom';
 
 interface CallbackProps {
   location: {
@@ -12,7 +13,15 @@ interface CallbackProps {
   };
 }
 
-export default class Callback extends React.Component<CallbackProps, {}> {
+interface CallbackState {
+  readonly redirectHome: boolean;
+}
+
+export default class Callback extends React.Component<CallbackProps, CallbackState> {
+
+  state: CallbackState = {
+    redirectHome: false
+  };
 
   public constructor(props: CallbackProps) {
     super(props);
@@ -23,9 +32,17 @@ export default class Callback extends React.Component<CallbackProps, {}> {
     }
   }
 
-  // TODO: Return a redirect to home screen here!
+  componentDidMount() {
+    this.setState({ redirectHome: true });
+  }
+
   public render() {
-    return null;
+    const { redirectHome } = this.state;
+    if (redirectHome === true) {
+      return <Redirect to={'/'}/>; 
+    } else {
+      return null;
+    }
   }
 
   private obtainAccessToken(hashData): string {

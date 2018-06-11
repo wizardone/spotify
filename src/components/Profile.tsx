@@ -27,22 +27,24 @@ export class Profile extends React.Component<ProfileProps, {}> {
   }
 
   async componentDidMount() {
-    try {
-      const userData = await new Api.Client().me();
-      this.props.addUserData(userData);
-    } catch (e) {
-      // console.log('Expired');
+    if (Object.keys(this.props.userData).length === 0) {
+      try {
+        const userData = await new Api.Client().me();
+        this.props.addUserData(userData);
+      } catch (e) {
+        // console.log('Expired');
+      }
     }
   }
 
   render() {
     return (
       <div>
-        Profile Page
-          <p className='email'>Email: {this.props.userData.email}</p>
-          <p>Display name: {this.props.userData.display_name}</p>
-          <p>Id: {this.props.userData.id}</p>
-          <p>Type: {this.props.userData.type}</p>
+      Profile Page
+      <p className="email">Email: {this.props.userData.email}</p>
+      <p>Display name: {this.props.userData.display_name}</p>
+      <p>Id: {this.props.userData.id}</p>
+      <p>Type: {this.props.userData.type}</p>
       </div>
     );
   }

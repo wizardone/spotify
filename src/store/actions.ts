@@ -1,7 +1,6 @@
-import { UserState } from '../interfaces';
+import { UserState, Action } from '../interfaces';
 
-interface AddUserAction {
-  type: string;
+interface AddUserAction extends Action {
   data: UserState;
 }
 

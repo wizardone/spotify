@@ -23,3 +23,7 @@ export interface UserState {
   type: string;
   uri: string;
 }
+
+export interface Action {
+  type: string;
+}
