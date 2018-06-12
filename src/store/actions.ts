@@ -1,10 +1,14 @@
-import { UserState, Action } from '../interfaces';
+import { 
+  AppState,
+  Action,
+  User 
+} from '../interfaces';
 
 interface AddUserAction extends Action {
-  data: UserState;
+  data: User;
 }
 
-const addUser = (userData: UserState): AddUserAction => {
+const addUser = (userData: User): AddUserAction => {
   return {
     type: 'ADD_USER_DATA',
     data: userData

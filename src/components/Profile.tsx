@@ -3,21 +3,23 @@ import { connect } from 'react-redux';
 import Auth from '../auth';
 import { Api } from '../api/client';
 import addUser from '../store/actions';
-import { UserState } from '../interfaces';
+import { AppState, User } from '../interfaces';
 
 interface ProfileProps {
   addUserData: (userData: {}) => {};
-  userData: UserState;
+  userData: User;
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     addUserData: (userData) => dispatch(addUser(userData))
   };
 };
 
-const mapStateToProps = (state: UserState) => {
-  return { userData: state };
+const mapStateToProps = (state: AppState) => {
+  return { 
+    userData: state.user
+  };
 };
 
 export class Profile extends React.Component<ProfileProps, {}> {
@@ -27,7 +29,7 @@ export class Profile extends React.Component<ProfileProps, {}> {
   }
 
   async componentDidMount() {
-    if (Object.keys(this.props.userData).length === 0) {
+    if (this.props.userData.id === '') {
       try {
         const userData = await new Api.Client().me();
         this.props.addUserData(userData);

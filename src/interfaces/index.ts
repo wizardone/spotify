@@ -4,7 +4,7 @@ interface SpotifyImage {
   url: string;
 }
 
-export interface UserState {
+export interface User {
   birthdate?: string;
   country?: string;
   display_name: string;
@@ -14,7 +14,7 @@ export interface UserState {
   };
   followers: {
     href: string;
-    total: number
+    total: number;
   };
   href: string;
   id: string;
@@ -22,6 +22,16 @@ export interface UserState {
   product: string;
   type: string;
   uri: string;
+}
+
+export interface AppState {
+  user: User,
+  tracks: {
+  
+  },
+  artists: {
+  
+  }
 }
 
 export interface Action {
