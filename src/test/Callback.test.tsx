@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as enzyme from 'enzyme';
-import { BrowserRouter, Redirect } from 'react-router-dom';
+import { MemoryRouter, Redirect } from 'react-router-dom';
 import Callback from '../components/Callback';
 
 describe('<Callback />', () => {
@@ -12,7 +12,7 @@ describe('<Callback />', () => {
   }
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter><Callback {...props}/></BrowserRouter>, div);
+    ReactDOM.render(<MemoryRouter><Callback {...props}/></MemoryRouter>, div);
   });
 
   it('redirects to the home screen', () => {

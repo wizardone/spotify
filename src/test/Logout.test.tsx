@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as enzyme from 'enzyme';
-import { BrowserRouter, Redirect } from 'react-router-dom';
+import { MemoryRouter, Redirect } from 'react-router-dom';
 import Logout from '../components/Logout';
 import Auth from '../auth';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<BrowserRouter><Logout /></BrowserRouter>, div);
+  ReactDOM.render(<MemoryRouter><Logout /></MemoryRouter>, div);
 });
 
 it('redirects to the home screen', () => {

@@ -3,12 +3,12 @@ import * as ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import App from '../components/App';
 import Auth from '../auth';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { MemoryRouter, Link } from 'react-router-dom';
 
 describe('App', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, div);
+    ReactDOM.render(<MemoryRouter><App/></MemoryRouter>, div);
   });
 
   it('renders the proper header links if you are not logged in', () => {
