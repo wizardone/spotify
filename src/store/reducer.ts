@@ -37,7 +37,7 @@ const spotifyApp = (state: AppState, action) => {
           ...state.user,
           ...action.data
         }
-      }
+      };
     default:
       return initialState;
   }

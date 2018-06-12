@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import Auth from '../auth';
 import { Api } from '../api/client';
-import addUser from '../store/actions';
+import { addUser } from '../store/actions';
 import { AppState, User } from '../interfaces';
 
 interface ProfileProps {
